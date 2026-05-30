@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Veltrix | Innovate · Create · Elevate</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* iOS zoom fix - prevents auto-zoom on inputs */
+button,
+input,
+textarea {
+    font-size: 16px;
+}
+
+/* Better responsiveness */
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #111827;
+    line-height: 1.5;
+}
+
+/* Touch manipulation for better mobile tapping */
+button,
+.service-card,
+.stat-premium,
+.contact-info-list div,
+.tab-item {
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+/* Header & Tabs - Fully Responsive */
+header {
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #eef2ff;
+    padding: 0 5%;
+    width: 100%;
+}
+
+.tab-bar {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.logo-text {
+    font-size: clamp(1.6rem, 5vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #111827, #1e40af);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.tagline-header {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #6b7280;
+    letter-spacing: 0.5px;
+    border-left: 1px solid #e5e7eb;
+    padding-left: 10px;
+}
+
+.tabs-wrapper {
+    display: flex;
+    gap: 6px;
+    background: #f9fafb;
+    padding: 5px;
+    border-radius: 60px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tab-item {
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border: none;
+    background: transparent;
+    border-radius: 50px;
+    transition: all 0.25s ease;
+    font-family: 'Inter', sans-serif;
+    color: #4b5563;
+    white-space: nowrap;
+}
+
+.tab-item i {
+    margin-right: 6px;
+    font-size: 0.85rem;
+}
+
+.tab-item.active {
+    background: #ffffff;
+    color: #1e40af;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 0 0 1px rgba(30,64,175,0.15);
+}
+
+.tab-item:hover:not(.active) {
+    background: #eef2ff;
+    color: #1e40af;
+}
+
+/* Pages Container */
+.pages-container {
+    min-height: 70vh;
+}
+
+.page {
+    display: none;
+    animation: fadeSlide 0.4s ease-out;
+}
+
+.page.active-page {
+    display: block;
+}
+
+@keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== HOME PAGE - EXPANDED & LARGER ========== */
+.hero-premium {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 6% 80px;
+    background: linear-gradient(145deg, #ffffff 0%, #fafcff 100%);
+    position: relative;
+}
+
+.hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.hero-inner h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.2;
+    margin-bottom: 28px;
+    letter-spacing: -0.02em;
+}
+
+.hero-inner .brand-highlight {
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-inner p {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    max-width: 750px;
+    margin: 0 auto;
+    color: #4b5563;
+    line-height: 1.7;
+}
+
+.btn-group-premium {
+    margin-top: 48px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-grad {
+    background: #0f172a;
+    color: white;
+    padding: 14px 36px;
+    border-radius: 44px;
+    font-weight: 600;
+    border: none;
+    transition: 0.25s;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-grad:hover {
+    background: #1e3a8a;
+    transform: translateY(-3px);
+}
+
+.btn-outline-premium {
+    background: transparent;
+    border: 1.5px solid #1e3a8a;
+    color: #1e3a8a;
+    padding: 14px 36px;
+    border-radius: 44px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.btn-outline-premium:hover {
+    background: #f0f4ff;
+    transform: translateY(-3px);
+}
+
+/* Expanded Home Sections */
+.home-features {
+    padding: 80px 6%;
+    background: #ffffff;
+    border-top: 1px solid #f1f5f9;
+}
+
+.features-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 30px 20px;
+    background: #fefefe;
+    border-radius: 32px;
+    transition: 0.25s;
+}
+
+.feature-item i {
+    font-size: 2.5rem;
+    background: #f1f5f9;
+    padding: 18px;
+    border-radius: 28px;
+    color: #1e40af;
+    margin-bottom: 24px;
+}
+
+.feature-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: #0f172a;
+}
+
+.feature-item p {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+.trust-section {
+    padding: 70px 6%;
+    background: #f8fafc;
+    text-align: center;
+}
+
+.trust-section h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 40px;
+}
+
+.logo-cloud {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 48px;
+    opacity: 0.7;
+}
+
+.logo-cloud span {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #4b5563;
+    letter-spacing: 0.5px;
+}
+
+/* Services Section */
+.services-section {
+    padding: 90px 6%;
+    background: #ffffff;
+}
+
+.section-header-premium {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header-premium h2 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.section-header-premium p {
+    color: #6b7280;
+    margin-top: 12px;
+    font-size: 1rem;
+}
+
+.grid-premium {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: #ffffff;
+    padding: 36px 28px;
+    border-radius: 28px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+    border: 1px solid #edf2f7;
+    transition: all 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    border-color: #cbd5e1;
+    box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+}
+
+.service-icon {
+    font-size: 2rem;
+    background: #f1f5f9;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    margin-bottom: 24px;
+    color: #1e40af;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #0f172a;
+}
+
+.service-card p {
+    color: #5b6e8c;
+    line-height: 1.6;
+}
+
+/* About Page */
+.about-modern {
+    padding: 90px 6%;
+    background: #fefefe;
+}
+
+.about-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-text {
+    flex: 1.2;
+}
+
+.about-text h2 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 24px;
+}
+
+.about-text p {
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.stats-grid {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.stat-premium {
+    background: #f9fafb;
+    padding: 18px 24px;
+    border-radius: 28px;
+    text-align: center;
+    border: 1px solid #eef2ff;
+    flex: 1;
+    min-width: 110px;
+}
+
+.stat-number-premium {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1e40af;
+}
+
+.about-accent {
+    flex: 0.8;
+    background: #f8fafc;
+    border-radius: 48px;
+    padding: 48px 24px;
+    text-align: center;
+    border: 1px solid #eef2ff;
+}
+
+.about-accent i {
+    font-size: 2.8rem;
+    color: #1e40af;
+}
+
+/* Contact Page */
+.contact-premium {
+    padding: 90px 6%;
+    background: #ffffff;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    background: #ffffff;
+    border-radius: 48px;
+    box-shadow: 0 20px 40px -12px rgba(0,0,0,0.05);
+    padding: 40px;
+    border: 1px solid #eef2ff;
+}
+
+.contact-left {
+    flex: 1;
+}
+
+.contact-left h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.contact-info-list {
+    margin: 28px 0;
+}
+
+.contact-info-list div {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    color: #374151;
+}
+
+.contact-info-list i {
+    width: 28px;
+    color: #1e40af;
+}
+
+.contact-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.contact-right input, .contact-right textarea {
+    padding: 16px 20px;
+    border-radius: 32px;
+    border: 1px solid #e2e8f0;
+    font-family: inherit;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.contact-right textarea {
+    resize: vertical;
+}
+
+.submit-premium {
+    background: #0f172a;
+    color: white;
+    padding: 16px;
+    border-radius: 44px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.submit-premium:hover {
+    background: #1e3a8a;
+}
+
+/* Footer */
+footer {
+    background: #f8fafc;
+    padding: 40px 6% 30px;
+    color: #6b7280;
+    text-align: center;
+    border-top: 1px solid #eef2ff;
+    font-size: 0.85rem;
+}
+
+/* Toast */
+.toast-premium {
+    position: fixed;
+    bottom: 30px;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    max-width: 500px;
+    margin: 0 auto;
+    background: #1f2937;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 40px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 9999;
+    transition: 0.3s;
+    background: rgba(17,24,39,0.95);
+    backdrop-filter: blur(6px);
+    pointer-events: none;
+    text-align: center;
+    transform: translateX(-50%) translateY(100px);
+    left: 50%;
+}
+
+.toast-premium.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Responsive - Mobile First Excellence */
+@media (max-width: 900px) {
+    .tab-bar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 16px 0;
+    }
+    
+    .logo-area {
+        justify-content: center;
+    }
+    
+    .tabs-wrapper {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .tab-item {
+        flex: 1 1 45%;
+        min-width: 120px;
+        white-space: nowrap;
+        text-align: center;
+        justify-content: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .hero-premium {
+        min-height: 80vh;
+        padding: 40px 5% 60px;
+    }
+    
+    .btn-grad, .btn-outline-premium {
+        padding: 12px 28px;
+        font-size: 0.9rem;
+    }
+    
+    .features-grid {
+        gap: 24px;
+    }
+    
+    .feature-item {
+        padding: 24px 16px;
+    }
+    
+    .contact-container {
+        padding: 28px;
+    }
+    
+    .stats-grid {
+        justify-content: center;
+    }
+    
+    .toast-premium {
+        white-space: normal;
+        text-align: center;
+        max-width: 85%;
+        font-size: 0.75rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        width: auto;
+    }
+    
+    .toast-premium.show {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-inner h1 {
+        font-size: 2rem;
+    }
+    
+    .section-header-premium h2 {
+        font-size: 1.8rem;
+    }
+    
+    .service-card {
+        padding: 28px 20px;
+    }
+    
+    .service-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .contact-info-list div {
+        font-size: 0.85rem;
+    }
+    
+    .logo-cloud span {
+        font-size: 0.9rem;
+    }
+    
+    .trust-section h3 {
+        font-size: 1.4rem;
+    }
+    
+    .tab-item {
+        min-width: 100px;
+        padding: 8px 12px;
+        font-size: 0.75rem;
+    }
+}
+
+/* tablet landscape */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-inner h1 {
+        font-size: 3rem;
+    }
+    
+    .tab-item {
+        padding: 10px 22px;
+    }
+}
+
+/* Accessibility focus styles */
+button:focus-visible,
+.tab-item:focus-visible,
+.service-card:focus-visible,
+.submit-premium:focus-visible {
+    outline: 2px solid #1e40af;
+    outline-offset: 2px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="tab-bar">
+        <div class="logo-area">
+            <div class="logo-text">VELTRIX</div>
+            <div class="tagline-header">INNOVATE · CREATE · ELEVATE</div>
+        </div>
+        <div class="tabs-wrapper">
+            <button class="tab-item active" data-tab="home" aria-label="Home Page"><i class="fas fa-home"></i> Home</button>
+            <button class="tab-item" data-tab="services" aria-label="Services Page"><i class="fas fa-cogs"></i> Services</button>
+            <button class="tab-item" data-tab="about" aria-label="About Page"><i class="fas fa-building"></i> About</button>
+            <button class="tab-item" data-tab="contact" aria-label="Contact Page"><i class="fas fa-envelope"></i> Contact</button>
+        </div>
+    </div>
+</header>
+
+<div class="pages-container">
+    <div class="page active-page" id="home-page">
+        <section class="hero-premium">
+            <div class="hero-inner">
+                <h1><span class="brand-highlight">Veltrix</span> — engineering the <br>digital frontier</h1>
+                <p>We build high-performance web platforms, intelligent automation, and enterprise solutions that scale with your ambition. Trusted by industry leaders worldwide.</p>
+                <div class="btn-group-premium">
+                    <button class="btn-grad" id="homeToServices" aria-label="Explore Services"><i class="fas fa-arrow-right"></i> Explore services</button>
+                    <button class="btn-outline-premium" id="homeToContact" aria-label="Start a Project"><i class="fas fa-comment"></i> Start a project</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="home-features">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Lightning Fast</h3>
+                    <p>Sub-second load times, global CDN, and optimized architecture for unmatched performance.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Enterprise Security</h3>
+                    <p>Bank-grade encryption, regular audits, and compliance-ready infrastructure.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>Dedicated Support</h3>
+                    <p>24/7 expert assistance, proactive monitoring, and rapid incident response.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="trust-section">
+            <h3>Trusted by innovative companies</h3>
+            <div class="logo-cloud">
+                <span>STRIPE</span>
+                <span>VERCEL</span>
+                <span>NOTION</span>
+                <span>ATLASSIAN</span>
+                <span>DROPSHIP</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="page" id="services-page">
+        <div class="services-section">
+            <div class="section-header-premium">
+                <h2>Core capabilities</h2>
+                <p>Precision engineering for modern business challenges</p>
+            </div>
+            <div class="grid-premium">
+                <div class="service-card"><div class="service-icon"><i class="fas fa-globe"></i></div><h3>Web Engineering</h3><p>React, Vue, Next.js platforms with uncompromising performance and SEO-first architecture.</p></div>
+                <div class="service-card"><div class="service-icon"><i class="fab fa-whatsapp"></i></div><h3>WhatsApp Integration</h3><p>Seamless API orchestration, notification workflows, and conversational AI for lead engagement.</p></div>
+                <div class="service-card"><div class="service-icon"><i class="fas fa-robot"></i></div><h3>Intelligent Automation</h3><p>Custom RPA, CRM sync, and business process automation to reduce operational friction.</p></div>
+                <div class="service-card"><div class="service-icon"><i class="fas fa-cloud-upload-alt"></i></div><h3>Cloud & DevOps</h3><p>AWS, Azure-native solutions, CI/CD pipelines, and infrastructure as code.</p></div>
+                <div class="service-card"><div class="service-icon"><i class="fas fa-pen-fancy"></i></div><h3>UX Engineering</h3><p>Data-driven interfaces, design systems, and conversion-centric user experiences.</p></div>
+                <div class="service-card"><div class="service-icon"><i class="fas fa-shield-alt"></i></div><h3>Security & Compliance</h3><p>GDPR, SOC2 readiness, zero-trust architecture and regular audits.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page" id="about-page">
+        <div class="about-modern">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Driving innovation<br>since 2020</h2>
+                    <p>Veltrix partners with forward-thinking organizations to build digital ecosystems that scale. Our team of engineers, strategists, and designers focuses on outcome-driven solutions — blending technical depth with business acumen. We don't just deliver software; we create lasting competitive advantage.</p>
+                    <div class="stats-grid">
+                        <div class="stat-premium"><div class="stat-number-premium">500+</div><p>Projects delivered</p></div>
+                        <div class="stat-premium"><div class="stat-number-premium">24/7</div><p>Support coverage</p></div>
+                        <div class="stat-premium"><div class="stat-number-premium">98%</div><p>Client retention</p></div>
+                    </div>
+                </div>
+                <div class="about-accent">
+                    <i class="fas fa-medal"></i>
+                    <p style="margin-top: 16px; font-weight: 600;">Certified partners</p>
+                    <p style="font-size: 0.8rem;">AWS Select · Meta Tech · Google Cloud</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page" id="contact-page">
+        <div class="contact-premium">
+            <div class="contact-container">
+                <div class="contact-left">
+                    <h3>Let's elevate your vision</h3>
+                    <p>Our team responds within 24 hours. Tell us about your next big idea.</p>
+                    <div class="contact-info-list">
+                        <div><i class="fas fa-envelope"></i> supvolex@gmail.com</div>
+                        <div><i class="fas fa-phone-alt"></i> +91 8920379677</div>
+                        <div id="whatsappDirectClick"><i class="fab fa-whatsapp"></i> +91 8920379677 </div>
+                        <div><i class="fas fa-map-marker-alt"></i> San Francisco · London · Singapore</div>
+                    </div>
+                </div>
+                <form class="contact-right" id="webContactForm">
+                    <input type="text" name="name" id="contactName" placeholder="Full name" required>
+                    <input type="email" name="email" id="contactEmail" placeholder="Email address" required>
+                    <textarea rows="4" name="message" id="contactMsg" placeholder="How can we help?" style="resize: vertical;" required></textarea>
+                    <button type="submit" class="submit-premium" id="sendContactMsg" aria-label="Send Message"><i class="fas fa-paper-plane"></i> Send inquiry</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Veltrix — Innovate · Create · Elevate</p>
+</footer>
+
+<div id="toastGlobal" class="toast-premium"></div>
+
+<script>
+    // === TABS SYSTEM ===
+    const tabBtns = document.querySelectorAll('.tab-item');
+    const pages = {
+        home: document.getElementById('home-page'),
+        services: document.getElementById('services-page'),
+        about: document.getElementById('about-page'),
+        contact: document.getElementById('contact-page')
+    };
+
+    function switchToTab(tabId) {
+        Object.values(pages).forEach(page => {
+            if(page) page.classList.remove('active-page');
+        });
+        if(pages[tabId]) pages[tabId].classList.add('active-page');
+        
+        tabBtns.forEach(btn => {
+            btn.classList.remove('active');
+            if(btn.getAttribute('data-tab') === tabId) {
+                btn.classList.add('active');
+            }
+        });
+        showToast(`${tabId.charAt(0).toUpperCase() + tabId.slice(1)} section`, false);
+    }
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabValue = btn.getAttribute('data-tab');
+            switchToTab(tabValue);
+        });
+    });
+
+    // Home buttons
+    document.getElementById('homeToServices')?.addEventListener('click', () => switchToTab('services'));
+    document.getElementById('homeToContact')?.addEventListener('click', () => switchToTab('contact'));
+
+    // Formspree API Submission
+    const contactForm = document.getElementById('webContactForm');
+    if(contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const msg = document.getElementById('contactMsg').value.trim();
+            
+            if(!name || !email || !msg) {
+                showToast("Please complete all fields", false);
+                return;
+            }
+
+            showToast("Sending your message...", false);
+
+            fetch('https://formspree.io/f/mnjrrwkn', {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    showToast(`Thank you, ${name}. Our team will respond within 24 hours.`, true);
+                    contactForm.reset(); 
+                } else {
+                    showToast("Oops! Something went wrong. Try again.", false);
+                }
+            }).catch(error => {
+                showToast("Network error. Please check your connection.", false);
+            });
+        });
+    }
+
+    // Service cards interaction
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+            const title = card.querySelector('h3')?.innerText || 'Service';
+            showToast(`${title} — Request a detailed proposal`, true);
+        });
+    });
+
+    // Interactive stats
+    document.querySelectorAll('.stat-premium').forEach(stat => {
+        stat.style.cursor = 'pointer';
+        stat.addEventListener('click', () => showToast("Performance metrics available upon request", false));
+    });
+
+    // WhatsApp redirect functionality with your new number
+    document.getElementById('whatsappDirectClick')?.addEventListener('click', () => {
+        window.open('https://wa.me/9189203796077?text=Hi%20Veltrix,%20I%20want%20to%20discuss%20a%20project.', '_blank');
+    });
+
+    // Contact details copy
+    document.querySelectorAll('.contact-info-list div').forEach(row => {
+        if(row.id === 'whatsappDirectClick') return; 
+        row.style.cursor = 'pointer';
+        row.addEventListener('click', () => {
+            const text = row.innerText;
+            if(text.includes('@')) {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText('supvolex@gmail.com')
+                        .then(() => showToast("Email address copied", true))
+                        .catch(() => showToast("Unable to copy email", false));
+                } else {
+                    const textArea = document.createElement('textarea');
+                    textArea.value = 'supvolex@gmail.com';
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        showToast("Email address copied", true);
+                    } catch (err) {
+                        showToast("Copy feature not supported on this device", false);
+                    }
+                    document.body.removeChild(textArea);
+                }
+            } else {
+                showToast("Contact our team anytime", true);
+            }
+        });
+    });
+
+    function showToast(message, isSuccess = true) {
+        const toast = document.getElementById('toastGlobal');
+        toast.textContent = message;
+        toast.style.borderLeft = isSuccess ? '3px solid #10b981' : '3px solid #f59e0b';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+</script>
+</body>
+</html>
